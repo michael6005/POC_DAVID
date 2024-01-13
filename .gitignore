@@ -1,0 +1,16 @@
+# Created by pytest automatically.
+*Pipfile.lock
+
+*__pycache__/
+
+*.pytest_cache/
+
+*.pyc
+*.pyo
+
+# Игнорировать виртуальные окружения
+*.venv/
+*venv/
+
+# Игнорировать файлы локальных конфигураций
+*.env
