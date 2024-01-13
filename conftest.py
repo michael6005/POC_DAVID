@@ -32,7 +32,7 @@ def initialize_driver():
         'unlockKey': '1111'
     })
     driver = webdriver.Remote('http://localhost:4723/wd/hub', options=options)
-    driver.implicitly_wait(30)
+    # driver.implicitly_wait(30)
     return driver
 
 
@@ -49,10 +49,10 @@ def driver():
 def screen_recorder(driver):
     driver.start_recording_screen()
     video_name = time.strftime("%Y_%m_%d_%H:%M:%S")
-    filepath = os.path.join("screen_records", video_name + ".mp4")
+    filepath = os.path.join("../screen_records", video_name + ".mp4")
 
-    if not os.path.exists("screen_records"):
-        os.makedirs("screen_records")
+    if not os.path.exists("../screen_records"):
+        os.makedirs("../screen_records")
 
     yield
 
