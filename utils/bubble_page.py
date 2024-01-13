@@ -1,10 +1,5 @@
 # utils/bubble_page.py
-from appium import webdriver
-from appium.webdriver.appium_service import AppiumService
-from appium.options.android import UiAutomator2Options
-from appium import webdriver
 from appium.webdriver.common.appiumby import AppiumBy
-import pytest
 
 
 class BubblePage:
