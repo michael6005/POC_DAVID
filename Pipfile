@@ -11,6 +11,8 @@ options = "*"
 uiautomator2 = "*"
 selenium = "*"
 pytest-html = "*"
+screen-recorder = "*"
+recorder = "*"
 
 [dev-packages]
 

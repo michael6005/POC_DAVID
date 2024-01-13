@@ -1,9 +1,13 @@
 # conftest.py
+import base64
 import subprocess
+import time
 import pytest
 from appium import webdriver
 from appium.webdriver.appium_service import AppiumService
 from appium.options.android import UiAutomator2Options
+import allure
+import os
 
 
 def start_appium_service():
@@ -39,3 +43,23 @@ def driver():
     yield driver
     driver.quit()
     AppiumService().stop()
+
+
+@pytest.fixture(scope='function')
+def screen_recorder(driver):
+    driver.start_recording_screen()
+    video_name = time.strftime("%Y_%m_%d_%H:%M:%S")
+    filepath = os.path.join("screen_records", video_name + ".mp4")
+
+    if not os.path.exists("screen_records"):
+        os.makedirs("screen_records")
+
+    yield
+
+    video_rawdata = driver.stop_recording_screen()
+    with open(filepath, "wb") as vd:
+        vd.write(base64.b64decode(video_rawdata))
+
+    allure.attach.file(filepath, name="Screen Recording", attachment_type=allure.attachment_type.MP4)
+
+
