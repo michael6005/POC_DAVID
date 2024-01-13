@@ -48,11 +48,11 @@ def driver():
 @pytest.fixture(scope='function')
 def screen_recorder(driver):
     driver.start_recording_screen()
-    video_name = time.strftime("%Y_%m_%d_%H:%M:%S")
-    filepath = os.path.join("../screen_records", video_name + ".mp4")
+    video_name = time.strftime("%Y_%m_%d_%H_%M_%S")
+    filepath = os.path.join("screen_records", video_name + ".mp4")
 
-    if not os.path.exists("../screen_records"):
-        os.makedirs("../screen_records")
+    if not os.path.exists("screen_records"):
+        os.makedirs("screen_records")
 
     yield
 
