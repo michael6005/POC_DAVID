@@ -24,3 +24,9 @@ class BubblePage:
             EC.element_to_be_clickable((AppiumBy.ID, 'com.ideomobile.maccabi:id/dynamicActionButton'))
         )
         click_on_scape.click()
+
+    def whats_new_close(self):
+        close_btn = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((AppiumBy.ID, 'com.ideomobile.maccabi:id/ib_whats_new_close'))
+        )
+        close_btn.click()

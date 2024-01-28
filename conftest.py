@@ -32,7 +32,7 @@ def initialize_driver():
         'unlockKey': '1111'
     })
     driver = webdriver.Remote('http://localhost:4723/wd/hub', options=options)
-    # driver.implicitly_wait(30)
+    driver.implicitly_wait(30)
     return driver
 
 
